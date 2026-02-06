@@ -1,3 +1,4 @@
+// app/book/page.tsx
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CTAButton } from '@/components/cta-button'
@@ -7,108 +8,119 @@ export default function Book() {
     <div className="bg-background min-h-screen">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-32 sm:pt-40 lg:pt-48 pb-8 sm:pb-12 bg-background">
+      {/* ============================================ */}
+      {/* HEADER - Exact from docs */}
+      {/* ============================================ */}
+      <section className="pt-28 sm:pt-36 lg:pt-44 pb-8 sm:pb-12 bg-background">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             The Book
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground">
-            A comprehensive resource for financial advisors and decision-makers.
-          </p>
+          
+          {/* Body Copy - Exact */}
+          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+            <p>
+              The DSCR Illusion is a practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.
+            </p>
+            <p>
+              This is not a how-to manual.
+            </p>
+            <p>
+              It's a framework for thinking clearly when debt, yield, and assumptions collide.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Book Overview */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-background">
+      {/* ============================================ */}
+      {/* WHAT YOU'LL LEARN - Exact from docs */}
+      {/* ============================================ */}
+      <section className="py-16 sm:py-20 lg:py-24 border-t border-border">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
-          {/* Book Details */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            <div className="p-6 bg-card border border-border">
-              <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-2">Title</h3>
-              <p className="text-lg sm:text-xl font-semibold text-foreground">Rethinking Financial Strategy</p>
-            </div>
-            <div className="p-6 bg-card border border-border">
-              <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-2">Publication</h3>
-              <p className="text-lg sm:text-xl font-semibold text-foreground">2024</p>
-            </div>
-            <div className="p-6 bg-card border border-border">
-              <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-2">Format</h3>
-              <p className="text-lg sm:text-xl font-semibold text-foreground">Hardcover, eBook</p>
-            </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
+            What You'll Learn
+          </h2>
+
+          {/* Bullets - Exact from docs */}
+          <ul className="space-y-4">
+            <li className="flex gap-3 text-foreground">
+              <span className="text-muted-foreground">•</span>
+              <span>What DSCR approval actually represents</span>
+            </li>
+            <li className="flex gap-3 text-foreground">
+              <span className="text-muted-foreground">•</span>
+              <span>Why lender incentives and investor outcomes diverge</span>
+            </li>
+            <li className="flex gap-3 text-foreground">
+              <span className="text-muted-foreground">•</span>
+              <span>How risk migrates inside DSCR structures</span>
+            </li>
+            <li className="flex gap-3 text-foreground">
+              <span className="text-muted-foreground">•</span>
+              <span>Why underwriting strength ≠ deal strength</span>
+            </li>
+            <li className="flex gap-3 text-foreground">
+              <span className="text-muted-foreground">•</span>
+              <span>How to stress-test assumptions beyond DSCR ratios</span>
+            </li>
+            <li className="flex gap-3 text-foreground">
+              <span className="text-muted-foreground">•</span>
+              <span>When advisory replaces DIY judgment</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* BUY THE BOOK - Exact from docs */}
+      {/* ============================================ */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-secondary/30 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
+            Buy the Book
+          </h2>
+
+          {/* Buttons - Exact from docs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <CTAButton 
+              href="https://amazon.com/paperback-link" 
+              variant="primary"
+              external
+            >
+              Paperback on Amazon
+            </CTAButton>
+            <CTAButton 
+              href="https://amazon.com/kindle-link" 
+              variant="secondary"
+              external
+            >
+              Kindle on Amazon
+            </CTAButton>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* ADVISORY BRIDGE - Exact from docs */}
+      {/* ============================================ */}
+      <section className="py-16 sm:py-20 lg:py-24 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="space-y-4 mb-8">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              If you're already operating at scale—or considering it—the book may raise more questions than it answers.
+            </p>
+            <p className="text-lg text-foreground font-medium">
+              That's intentional.
+            </p>
           </div>
 
-          {/* Overview */}
-          <div className="mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">Overview</h2>
-            <div className="space-y-4 text-base sm:text-lg text-foreground leading-relaxed">
-              <p>
-                This book addresses the critical gaps in modern financial advisory. Through extensive market research, regulatory analysis, and real-world case studies, it provides a structured framework for advisors operating in an increasingly complex landscape.
-              </p>
-              <p>
-                Rather than prescribing one-size-fits-all solutions, the work empowers readers to think critically about strategy, risk, and value creation. It combines historical context with forward-looking analysis to ensure relevance in evolving markets.
-              </p>
-            </div>
-          </div>
-
-          {/* Key Ideas */}
-          <div className="mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">Key Ideas</h2>
-            <div className="space-y-4">
-              {[
-                { num: '1', title: 'Market Structure Matters', desc: 'Understanding how markets function at a structural level reveals opportunities and risks hidden from surface-level analysis.' },
-                { num: '2', title: 'Regulatory Context is Strategic', desc: 'Regulations shape incentives. Advisors who understand this dynamic gain competitive and structural advantage.' },
-                { num: '3', title: 'Data-Driven Decision Making', desc: 'In finance, conviction without data is speculation. Evidence-based thinking separates sustainable strategies from fads.' },
-                { num: '4', title: 'Client Alignment is Paramount', desc: 'The best strategies fail without clear alignment between advisor incentives and client outcomes.' },
-                { num: '5', title: 'Adaptability as Resilience', desc: 'Markets evolve. Systems designed for flexibility withstand disruption; rigid approaches fragment.' },
-              ].map((idea) => (
-                <div key={idea.num} className="p-6 sm:p-8 bg-card border border-border">
-                  <div className="flex gap-4">
-                    <div className="text-3xl font-bold text-accent flex-shrink-0">{idea.num}</div>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{idea.title}</h3>
-                      <p className="text-foreground">{idea.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Table of Contents */}
-          <div className="mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">Table of Contents</h2>
-            <div className="bg-card border border-border p-6 sm:p-8">
-              <ul className="space-y-3 text-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-accent flex-shrink-0">I.</span>
-                  <span>Market Foundations: Understanding Structure and Dynamics</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-accent flex-shrink-0">II.</span>
-                  <span>Regulatory Evolution and Strategic Implications</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-accent flex-shrink-0">III.</span>
-                  <span>Building Resilient Advisory Models</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-accent flex-shrink-0">IV.</span>
-                  <span>Risk Management in Practice</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-accent flex-shrink-0">V.</span>
-                  <span>Future Outlook and Strategic Positioning</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <CTAButton href="https://amazon.com" external>Purchase on Amazon</CTAButton>
-            <CTAButton href="/contact">Inquire About Speaking</CTAButton>
-          </div>
+          <CTAButton 
+            href="https://form.typeform.com/to/Cl5ljWMv" 
+            variant="primary"
+            external
+          >
+            Apply for Advisory
+          </CTAButton>
         </div>
       </section>
 

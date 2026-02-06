@@ -1,33 +1,104 @@
+// components/footer.tsx
+import Link from 'next/link'
+
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border mt-20 sm:mt-24 lg:mt-32">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-8">
-          <div>
-            <h3 className="font-bold text-foreground mb-4">Author</h3>
-            <p className="text-sm text-muted-foreground">Credible insights on finance and advisory.</p>
+    <footer className="bg-background border-t border-border">
+      {/* Main Footer */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <h3 className="text-lg font-semibold text-foreground mb-3">
+              The DSCR Illusion
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+              A clear, risk-first look at residential DSCR loans—and where investors get hurt.
+            </p>
           </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Navigation</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</a></li>
-              <li><a href="/book" className="text-muted-foreground hover:text-foreground transition-colors">The Book</a></li>
-              <li><a href="/advisory" className="text-muted-foreground hover:text-foreground transition-colors">Advisory</a></li>
-              <li><a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a></li>
+
+          {/* Navigation */}
+          <div className="md:col-span-3">
+            <h4 className="text-sm font-medium text-foreground mb-4">
+              Navigation
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/book" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  The Book
+                </Link>
+              </li>
+              <li>
+                <Link href="/advisory" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Advisory
+                </Link>
+              </li>
+              <li>
+                <Link href="/media" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Media
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Twitter</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Email</a></li>
-            </ul>
+
+          {/* CTA */}
+          <div className="md:col-span-4">
+            <h4 className="text-sm font-medium text-foreground mb-4">
+              Next Steps
+            </h4>
+            <div className="space-y-3">
+              <Link
+                href="https://form.typeform.com/to/Cl5ljWMv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2.5 bg-foreground text-background text-sm font-medium hover:bg-foreground/90 transition-colors"
+              >
+                Apply for Advisory
+              </Link>
+              <p className="text-sm text-muted-foreground">
+                <Link 
+                  href="https://amazon.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors underline underline-offset-4"
+                >
+                  Buy the Book
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className="border-t border-border pt-8">
-          <p className="text-xs text-muted-foreground text-center">
-            © 2025 Author. All rights reserved. This site is for informational purposes only and does not constitute financial advice.
+      </div>
+
+      {/* Disclaimer - EXACT from docs */}
+      <div className="border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-6">
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            This site is for educational and informational purposes only. Nothing on this website constitutes investment, legal, or financial advice.
+          </p>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-4">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} The DSCR Illusion. All rights reserved.
           </p>
         </div>
       </div>
