@@ -1,7 +1,7 @@
 // app/about/page.tsx
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { CTAButton } from '@/components/cta-button'
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { CTAButton } from "@/components/cta-button";
 
 export default function About() {
   return (
@@ -24,19 +24,36 @@ export default function About() {
       {/* ============================================ */}
       <section className="py-16 sm:py-20 lg:py-24 border-t border-border">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              Jeff Trevarthen is a mortgage professional and investor advisor focused on residential DSCR loans and portfolio-level risk.
-            </p>
-            <p>
-              He works with investors who are scaling exposure and want clarity beyond lender approval metrics.
-            </p>
-            <p className="text-foreground font-medium">
-              Jeff's work centers on a simple idea:
-            </p>
-            <p className="text-xl text-foreground font-semibold">
-              Risk doesn't disappear—it moves.
-            </p>
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* LEFT CONTENT */}
+            <div className="flex-1 space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Jeff Trevarthen is a mortgage professional and investor advisor
+                focused on residential DSCR loans and portfolio-level risk.
+              </p>
+
+              <p>
+                He works with investors who are scaling exposure and want
+                clarity beyond lender approval metrics.
+              </p>
+
+              <p className="text-foreground font-medium">
+                Jeff's work centers on a simple idea:
+              </p>
+
+              <p className="text-xl text-foreground font-semibold">
+                Risk doesn't disappear—it moves.
+              </p>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="flex-shrink-0">
+              <img
+                src="/IMG_2739.JPG.jpeg"
+                alt="Jeff Trevarthen"
+                className="w-56 h-56 object-cover rounded-2xl shadow-lg border border-border"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -80,9 +97,9 @@ export default function About() {
           <p className="text-lg text-muted-foreground mb-6">
             If you've read the book and want to explore next steps:
           </p>
-          
-          <CTAButton 
-            href="https://form.typeform.com/to/Cl5ljWMv" 
+
+          <CTAButton
+            href="https://form.typeform.com/to/Cl5ljWMv"
             variant="primary"
             external
           >
@@ -93,5 +110,5 @@ export default function About() {
 
       <Footer />
     </div>
-  )
+  );
 }

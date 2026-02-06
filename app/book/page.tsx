@@ -8,29 +8,48 @@ export default function Book() {
     <div className="bg-background min-h-screen">
       <Navbar />
 
-      {/* ============================================ */}
-      {/* HEADER - Exact from docs */}
-      {/* ============================================ */}
-      <section className="pt-28 sm:pt-36 lg:pt-44 pb-8 sm:pb-12 bg-background">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            The Book
-          </h1>
-          
-          {/* Body Copy - Exact */}
-          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
-            <p>
-              The DSCR Illusion is a practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.
-            </p>
-            <p>
-              This is not a how-to manual.
-            </p>
-            <p>
-              It's a framework for thinking clearly when debt, yield, and assumptions collide.
-            </p>
-          </div>
+    {/* ============================================ */}
+{/* HEADER - Exact from docs */}
+{/* ============================================ */}
+<section className="pt-28 sm:pt-36 lg:pt-44 pb-12 bg-background">
+  <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+    <div className="flex flex-col lg:flex-row items-center gap-12">
+      
+      {/* LEFT CONTENT */}
+      <div className="flex-1">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+          The Book
+        </h1>
+
+        {/* Body Copy */}
+        <div className="space-y-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+          <p>
+            The DSCR Illusion is a practical examination of residential DSCR
+            loans—written for investors who already understand leverage, but
+            want to understand risk.
+          </p>
+
+          <p>This is not a how-to manual.</p>
+
+          <p>
+            It's a framework for thinking clearly when debt, yield, and
+            assumptions collide.
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="flex-shrink-0">
+        <img
+          src="/book.jpeg"
+          alt="The DSCR Illusion Book Cover"
+          className="w-64 sm:w-72 lg:w-80 h-auto rounded-2xl shadow-xl border border-border"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ============================================ */}
       {/* WHAT YOU'LL LEARN - Exact from docs */}
