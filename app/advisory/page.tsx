@@ -1,10 +1,77 @@
 // app/advisory/page.tsx
+import type { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
+
 import { Footer } from '@/components/footer'
 import { CTAButton } from '@/components/cta-button'
 
+// ============================================
+// ADVISORY PAGE METADATA
+// ============================================
+export const metadata: Metadata = {
+  title: 'Advisory / Next Steps',
+  description: 'Portfolio-level clarity for investors with significant DSCR exposure. Invite-only advisory for those who need structured thinking around exposure, leverage, and downside.',
+  keywords: [
+    'DSCR advisory',
+    'investor advisory',
+    'portfolio risk analysis',
+    'DSCR loan consulting',
+    'real estate investment advisor',
+    'Jeff Trevarthen advisory',
+    'leverage risk consulting',
+  ],
+  openGraph: {
+    title: 'Advisory / Next Steps | The DSCR Illusion',
+    description: 'For investors who need portfolio-level clarity—not transactional advice. Invite-only engagement.',
+    url: 'https://thedscrillusion.com/advisory',
+    type: 'website',
+    images: [
+      {
+        url: '/og-advisory.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'DSCR Illusion Advisory Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Advisory / Next Steps | The DSCR Illusion',
+    description: 'For investors who need portfolio-level clarity—not transactional advice.',
+    images: ['/og-advisory.jpg'],
+  },
+  alternates: {
+    canonical: 'https://thedscrillusion.com/advisory',
+  },
+}
+
+// ============================================
+// JSON-LD STRUCTURED DATA FOR ADVISORY PAGE
+// ============================================
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'DSCR Investment Advisory',
+  description: 'Portfolio-level advisory for investors using residential DSCR loans who want to understand how financing decisions affect risk across an entire portfolio.',
+  provider: {
+    '@type': 'Person',
+    name: 'Jeff Trevarthen',
+    jobTitle: 'Mortgage Professional & Investor Advisor',
+    url: 'https://thedscrillusion.com/about',
+  },
+  serviceType: 'Investment Advisory',
+  areaServed: 'United States',
+  url: 'https://thedscrillusion.com/advisory',
+}
+
+
 export default function Advisory() {
   return (
+    <>
+     <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="bg-background min-h-screen">
       <Navbar />
 
@@ -159,5 +226,7 @@ export default function Advisory() {
 
       <Footer />
     </div>
+    </>
+
   )
 }

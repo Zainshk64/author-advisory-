@@ -1,55 +1,136 @@
 // app/book/page.tsx
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { CTAButton } from '@/components/cta-button'
+import type { Metadata } from 'next'
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { CTAButton } from "@/components/cta-button";
+
+
+
+// ============================================
+// BOOK PAGE METADATA
+// ============================================
+export const metadata: Metadata = {
+  title: 'The Book',
+  description: 'The DSCR Illusion is a practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.',
+  keywords: [
+    'DSCR Illusion book',
+    'DSCR loan book',
+    'real estate investing book',
+    'Jeff Trevarthen author',
+    'residential DSCR guide',
+    'investor risk book',
+    'leverage risk real estate',
+  ],
+  openGraph: {
+    title: 'The Book | The DSCR Illusion',
+    description: 'A practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.',
+    url: 'https://thedscrillusion.com/book',
+    type: 'website',
+    images: [
+      {
+        url: '/og-book.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'The DSCR Illusion Book Cover',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Book | The DSCR Illusion',
+    description: 'A practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.',
+    images: ['/og-book.jpg'],
+  },
+  alternates: {
+    canonical: 'https://thedscrillusion.com/book',
+  },
+}
+
+// ============================================
+// JSON-LD STRUCTURED DATA FOR BOOK PAGE
+// ============================================
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: 'The DSCR Illusion',
+  author: {
+    '@type': 'Person',
+    name: 'Jeff Trevarthen',
+    jobTitle: 'Mortgage Professional & Investor Advisor',
+    url: 'https://thedscrillusion.com/about',
+  },
+  description: 'A practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.',
+  genre: ['Business', 'Finance', 'Real Estate Investing'],
+  inLanguage: 'en',
+  publisher: {
+    '@type': 'Organization',
+    name: 'The DSCR Illusion',
+  },
+  url: 'https://thedscrillusion.com/book',
+  potentialAction: {
+    '@type': 'ReadAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://amazon.com/dscr-illusion', // Update with real Amazon link
+      actionPlatform: [
+        'http://schema.org/DesktopWebPlatform',
+        'http://schema.org/MobileWebPlatform',
+      ],
+    },
+  },
+}
+
 
 export default function Book() {
   return (
+    <>
+     <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="bg-background min-h-screen">
       <Navbar />
 
-    {/* ============================================ */}
-{/* HEADER - Exact from docs */}
-{/* ============================================ */}
-<section className="pt-28 sm:pt-36 lg:pt-44 pb-12 bg-background">
-  <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
-    <div className="flex flex-col lg:flex-row items-center gap-12">
-      
-      {/* LEFT CONTENT */}
-      <div className="flex-1">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-          The Book
-        </h1>
+      {/* ============================================ */}
+      {/* HEADER - Exact from docs */}
+      {/* ============================================ */}
+      <section className="pt-28 sm:pt-36 lg:pt-44 pb-12 bg-background">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* LEFT CONTENT */}
+            <div className="flex-1">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                The Book
+              </h1>
 
-        {/* Body Copy */}
-        <div className="space-y-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
-          <p>
-            The DSCR Illusion is a practical examination of residential DSCR
-            loans—written for investors who already understand leverage, but
-            want to understand risk.
-          </p>
+              {/* Body Copy */}
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                <p>
+                  The DSCR Illusion is a practical examination of residential
+                  DSCR loans—written for investors who already understand
+                  leverage, but want to understand risk.
+                </p>
 
-          <p>This is not a how-to manual.</p>
+                <p>This is not a how-to manual.</p>
 
-          <p>
-            It's a framework for thinking clearly when debt, yield, and
-            assumptions collide.
-          </p>
+                <p>
+                  It's a framework for thinking clearly when debt, yield, and
+                  assumptions collide.
+                </p>
+              </div>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="flex-shrink-0">
+              <img
+                src="/book.jpeg"
+                alt="The DSCR Illusion Book Cover"
+                className="w-64 sm:w-72 lg:w-80 h-auto rounded-2xl shadow-xl border border-border"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* RIGHT IMAGE */}
-      <div className="flex-shrink-0">
-        <img
-          src="/book.jpeg"
-          alt="The DSCR Illusion Book Cover"
-          className="w-64 sm:w-72 lg:w-80 h-auto rounded-2xl shadow-xl border border-border"
-        />
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ============================================ */}
       {/* WHAT YOU'LL LEARN - Exact from docs */}
@@ -101,15 +182,15 @@ export default function Book() {
 
           {/* Buttons - Exact from docs */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <CTAButton 
-              href="https://amazon.com/paperback-link" 
+            <CTAButton
+              href="https://amazon.com/paperback-link"
               variant="primary"
               external
             >
               Paperback on Amazon
             </CTAButton>
-            <CTAButton 
-              href="https://amazon.com/kindle-link" 
+            <CTAButton
+              href="https://amazon.com/kindle-link"
               variant="secondary"
               external
             >
@@ -126,15 +207,16 @@ export default function Book() {
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="space-y-4 mb-8">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              If you're already operating at scale—or considering it—the book may raise more questions than it answers.
+              If you're already operating at scale—or considering it—the book
+              may raise more questions than it answers.
             </p>
             <p className="text-lg text-foreground font-medium">
               That's intentional.
             </p>
           </div>
 
-          <CTAButton 
-            href="https://form.typeform.com/to/Cl5ljWMv" 
+          <CTAButton
+            href="https://form.typeform.com/to/Cl5ljWMv"
             variant="primary"
             external
           >
@@ -145,5 +227,7 @@ export default function Book() {
 
       <Footer />
     </div>
-  )
+    </>
+
+  );
 }

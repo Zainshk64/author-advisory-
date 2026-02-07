@@ -1,9 +1,76 @@
 // app/media/page.tsx
+import { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 
+
+// ============================================
+// MEDIA PAGE METADATA
+// ============================================
+export const metadata: Metadata = {
+  title: 'Media & Speaking',
+  description: 'Jeff Trevarthen is available for podcasts, panels, and investor-focused events. Topics include residential DSCR loans, investor risk, and portfolio-level thinking.',
+  keywords: [
+    'Jeff Trevarthen speaking',
+    'DSCR podcast guest',
+    'real estate investing speaker',
+    'investor conference speaker',
+    'DSCR loan expert speaker',
+    'finance podcast guest',
+    'real estate panel speaker',
+  ],
+  openGraph: {
+    title: 'Media & Speaking | The DSCR Illusion',
+    description: 'Available for podcasts, panels, and investor-focused events on residential DSCR loans, investor risk, and portfolio-level thinking.',
+    url: 'https://thedscrillusion.com/media',
+    type: 'website',
+    images: [
+      {
+        url: '/og-media.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Jeff Trevarthen - Media & Speaking',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Media & Speaking | The DSCR Illusion',
+    description: 'Available for podcasts, panels, and investor-focused events.',
+    images: ['/og-media.jpg'],
+  },
+  alternates: {
+    canonical: 'https://thedscrillusion.com/media',
+  },
+}
+
+// ============================================
+// JSON-LD STRUCTURED DATA FOR MEDIA PAGE
+// ============================================
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jeff Trevarthen',
+  jobTitle: 'Mortgage Professional & Investor Advisor',
+  description: 'Available for podcasts, panels, and investor-focused events.',
+  url: 'https://thedscrillusion.com/media',
+  knowsAbout: [
+    'Residential DSCR loans: what investors misunderstand',
+    'Lender approval vs investment risk',
+    'How risk shifts inside leverage structures',
+    'Portfolio-level thinking for real estate investors',
+    'Financing mistakes that compound over time',
+  ],
+}
+
+
+
 export default function Media() {
   return (
+    <>      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="bg-background min-h-screen">
       <Navbar />
 
@@ -140,5 +207,6 @@ export default function Media() {
 
       <Footer />
     </div>
+    </>
   )
 }

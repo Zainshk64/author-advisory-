@@ -6,6 +6,19 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CTAButton } from '@/components/cta-button'
 
+ const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact | The DSCR Illusion',
+    description: 'Contact Jeff Trevarthen for general inquiries, media requests, or speaking engagements.',
+    url: 'https://thedscrillusion.com/contact',
+    mainEntity: {
+      '@type': 'Person',
+      name: 'Jeff Trevarthen',
+      email: 'info@thedscrillusion.com',
+    },
+  }
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,6 +43,10 @@ export default function Contact() {
   }
 
   return (
+    <>     <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="bg-background min-h-screen">
       <Navbar />
 
@@ -144,5 +161,6 @@ export default function Contact() {
 
       <Footer />
     </div>
+    </>
   )
 }

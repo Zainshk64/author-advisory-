@@ -1,10 +1,88 @@
 // app/about/page.tsx
+import type { Metadata } from 'next'
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CTAButton } from "@/components/cta-button";
 
+
+// ============================================
+// ABOUT PAGE METADATA
+// ============================================
+export const metadata: Metadata = {
+  title: 'About the Author',
+  description: 'Jeff Trevarthen is a mortgage professional and investor advisor focused on residential DSCR loans and portfolio-level risk. Author of The DSCR Illusion.',
+  keywords: [
+    'Jeff Trevarthen',
+    'DSCR Illusion author',
+    'mortgage professional',
+    'investor advisor',
+    'DSCR loan expert',
+    'real estate risk advisor',
+    'portfolio risk analysis',
+  ],
+  openGraph: {
+    title: 'About the Author | The DSCR Illusion',
+    description: 'Jeff Trevarthen is a mortgage professional and investor advisor focused on residential DSCR loans and portfolio-level risk.',
+    url: 'https://thedscrillusion.com/about',
+    type: 'profile',
+    images: [
+      {
+        url: '/og-author.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Jeff Trevarthen - Author of The DSCR Illusion',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About the Author | The DSCR Illusion',
+    description: 'Jeff Trevarthen is a mortgage professional and investor advisor focused on residential DSCR loans and portfolio-level risk.',
+    images: ['/og-author.jpg'],
+  },
+  alternates: {
+    canonical: 'https://thedscrillusion.com/about',
+  },
+}
+
+// ============================================
+// JSON-LD STRUCTURED DATA FOR ABOUT PAGE
+// ============================================
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jeff Trevarthen',
+  jobTitle: 'Mortgage Professional & Investor Advisor',
+  description: 'Mortgage professional and investor advisor focused on residential DSCR loans and portfolio-level risk.',
+  url: 'https://thedscrillusion.com/about',
+  sameAs: [
+    // Add social media links when available
+    // 'https://linkedin.com/in/jefftrevarthen',
+    // 'https://twitter.com/jefftrevarthen',
+  ],
+  knowsAbout: [
+    'Residential DSCR Loans',
+    'Investment Property Financing',
+    'Portfolio Risk Analysis',
+    'Real Estate Investing',
+    'Leverage Risk Management',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'The DSCR Illusion',
+    url: 'https://thedscrillusion.com',
+  },
+}
+
+
+
 export default function About() {
   return (
+    <>
+     <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="bg-background min-h-screen">
       <Navbar />
 
@@ -110,5 +188,7 @@ export default function About() {
 
       <Footer />
     </div>
+    </>
+
   );
 }

@@ -1,11 +1,101 @@
 // app/page.tsx
+import type { Metadata } from 'next'
+
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { CTAButton } from '@/components/cta-button'
 import Link from 'next/link'
 
+
+
+// ============================================
+// HOME PAGE METADATA
+// ============================================
+export const metadata: Metadata = {
+  title: 'The DSCR Illusion | Residential DSCR Loan Risk Analysis',
+  description: 'Approved does not mean it\'s a good investment. A clear, risk-first look at residential DSCR loans—and where investors get hurt. By Jeff Trevarthen.',
+  keywords: [
+    'DSCR illusion',
+    'DSCR loan risks',
+    'residential DSCR loans',
+    'real estate investor risk',
+    'Jeff Trevarthen book',
+    'DSCR approval vs investment',
+    'portfolio-level decisions',
+  ],
+  openGraph: {
+    title: 'The DSCR Illusion | Residential DSCR Loan Risk Analysis',
+    description: 'Approved does not mean it\'s a good investment. A clear, risk-first look at residential DSCR loans—and where investors get hurt.',
+    url: 'https://thedscrillusion.com',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'The DSCR Illusion Book',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The DSCR Illusion | Residential DSCR Loan Risk Analysis',
+    description: 'Approved does not mean it\'s a good investment. A clear, risk-first look at residential DSCR loans.',
+    images: ['/og-image.jpg'],
+  },
+  alternates: {
+    canonical: 'https://thedscrillusion.com',
+  },
+}
+
+// ============================================
+// JSON-LD STRUCTURED DATA FOR HOME PAGE
+// ============================================
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://thedscrillusion.com/#website',
+      url: 'https://thedscrillusion.com',
+      name: 'The DSCR Illusion',
+      description: 'A clear, risk-first look at residential DSCR loans—and where investors get hurt.',
+      publisher: {
+        '@id': 'https://thedscrillusion.com/#author',
+      },
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://thedscrillusion.com/#author',
+      name: 'Jeff Trevarthen',
+      jobTitle: 'Mortgage Professional & Investor Advisor',
+      description: 'Mortgage professional and investor advisor specializing in residential DSCR lending and investor risk analysis.',
+      url: 'https://thedscrillusion.com/about',
+    },
+    {
+      '@type': 'Book',
+      '@id': 'https://thedscrillusion.com/#book',
+      name: 'The DSCR Illusion',
+      author: {
+        '@id': 'https://thedscrillusion.com/#author',
+      },
+      description: 'A practical examination of residential DSCR loans—written for investors who already understand leverage, but want to understand risk.',
+      genre: 'Business & Finance',
+      inLanguage: 'en',
+      url: 'https://thedscrillusion.com/book',
+    },
+  ],
+}
+
+
 export default function Home() {
   return (
+    <>
+
+     <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="bg-background min-h-screen">
       <Navbar />
 
@@ -280,5 +370,7 @@ export default function Home() {
 
       <Footer />
     </div>
+    </>
+
   )
 }
