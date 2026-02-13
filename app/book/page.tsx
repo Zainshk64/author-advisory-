@@ -123,7 +123,7 @@ export default function Book() {
             {/* RIGHT IMAGE */}
             <div className="flex-shrink-0">
               <img
-                src="/book.jpeg"
+                src="/Frontcover.jpeg"
                 alt="The DSCR Illusion Book Cover"
                 className="w-64 sm:w-72 lg:w-80 h-auto rounded-2xl shadow-xl border border-border"
               />
